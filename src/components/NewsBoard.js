@@ -15,7 +15,6 @@ const NewsBoard = ({ cat }) => {
       try {
         let url = `https://newsdata.io/api/1/news?apikey=${apiKey}&country=in&language=en`;
         
-        // Adjust URL for mixed content
         if (cat !== 'all') {
           url += `&category=${cat}`;
         }
@@ -25,7 +24,7 @@ const NewsBoard = ({ cat }) => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         let data = await response.json();
-        setArticles(data.results || []); // Assuming the API response has a 'results' field for articles
+        setArticles(data.results || []);
       } catch (error) {
         console.error('Error fetching news:', error);
         setError(error.message);
@@ -48,7 +47,7 @@ const NewsBoard = ({ cat }) => {
             <NewsItem
               title={news.title}
               description={news.description}
-              src={news.image_url} // Adjust this based on the actual API response structure
+              src={news.image_url}
               url={news.link}
             />
           </div>
