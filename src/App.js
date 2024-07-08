@@ -1,29 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import Navbar from "./components/Navbar";
-import NewsBoard from "./components/NewsBoard";
-import Footer from './components/Footer';  // Import Footer
-
-const useQuery = () => {
-    return new URLSearchParams(useLocation().search);
-};
+import React, { useState } from 'react';
+import Navbar from './components/Navbar';
+import NewsBoard from './components/NewsBoard';
+import { Route, Routes } from 'react-router-dom';
 
 const App = () => {
-    const query = useQuery();
-    const initialCategory = query.get('category') || 'general';
-    const [cat, setcat] = useState(initialCategory);
+  const [category, setCategory] = useState('all');
 
-    useEffect(() => {
-        setcat(query.get('category') || 'general');
-    }, [query]);
-
-    return (
-        <div>
-            <Navbar setcat={setcat} />
-            <NewsBoard cat={cat} />
-            <Footer />  
-        </div>
-    );
-}
+  return (
+    <>
+      <Navbar setcat={setCategory} />
+      <Routes>
+        <Route path="/" element={<NewsBoard cat={category} />} />
+        {/* Add more routes if needed */}
+      </Routes>
+    </>
+  );
+};
 
 export default App;
