@@ -23,7 +23,11 @@ const Navbar = ({ setcat }) => {
                 transition: "transform 0.2s ease-in-out" 
             }}>
             <div className="container">
-                <a className="navbar-brand d-flex" href="/">
+                <a 
+                    className="navbar-brand d-flex" 
+                    href="/" 
+                    onClick={(e) => handleCategoryClick(e, 'all')}
+                >
                     <FontAwesomeIcon icon={faNewspaper} className="me-2 fs-3 text-danger" /> 
                     <span className="fs-4 text-danger">NewsToday</span> 
                 </a>
