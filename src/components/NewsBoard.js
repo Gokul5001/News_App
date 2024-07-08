@@ -13,7 +13,7 @@ const NewsBoard = ({ cat }) => {
       setLoading(true); // Set loading to true before fetching
       setError(null); // Reset error before fetching
       try {
-        let url = `https://newsapi.org/v2/top-headlines?country=us&category=${cat}&apiKey=${apiKey}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${cat}&apiKey=${apiKey}`;
         let response = await fetch(url);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
