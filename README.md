@@ -1,6 +1,7 @@
 # News App using ReactJs
 
-![image](https://github.com/Gokul5001/News_App/assets/132426290/967786f4-da70-4bf8-9ae4-8ebb139a9ba9)
+![image](https://github.com/Gokul5001/News_App/assets/132426290/691da31b-deb8-40ce-8f82-219029da3fb7)
+
 
 **News App** is a React.js application designed to fetch and display the latest news articles. It leverages the News API for content and uses Bootstrap for responsive styling.
 
