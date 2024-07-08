@@ -43,7 +43,7 @@ const NewsBoard = ({ cat }) => {
               title={news.title}
               description={news.description}
               src={news.image_url} // Adjust this based on the actual API response structure
-              url={news.url}
+              url={news.link}
             />
           </div>
         ))}
