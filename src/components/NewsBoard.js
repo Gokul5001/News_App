@@ -1,37 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import NewsItem from './NewsItem';
 
-const apiKey = '8a57ee897afa41618052fd00b0a637db';
+const apiKey = 'pub_481486c97b376eaaa1df4cc0d6d213b33268c';
 
 const NewsBoard = ({ cat }) => {
   const [articles, setArticles] = useState([]);
-  const [loading, setLoading] = useState(true); // Added loading state
-  const [error, setError] = useState(null); // Added error state
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchNews = async () => {
-      setLoading(true); // Set loading to true before fetching
-      setError(null); // Reset error before fetching
+      setLoading(true);
+      setError(null);
       try {
-        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${cat}&apiKey=${apiKey}`;
+        let url = `https://newsdata.io/api/1/news?apikey=${apiKey}&country=in&language=en&category=${cat}`;
         let response = await fetch(url);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         let data = await response.json();
-        setArticles(data.articles || []); // Ensure articles is an array
+        setArticles(data.results || []); // Assuming the API response has a 'results' field for articles
       } catch (error) {
         console.error('Error fetching news:', error);
-        setError(error.message); // Set error message
+        setError(error.message);
       } finally {
-        setLoading(false); // Set loading to false after fetching
+        setLoading(false);
       }
     };
     fetchNews();
   }, [cat]);
 
-  if (loading) return <p>Loading...</p>; // Display loading message
-  if (error) return <p>Error: {error}</p>; // Display error message
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <div className="container mt-4">
@@ -42,7 +42,7 @@ const NewsBoard = ({ cat }) => {
             <NewsItem
               title={news.title}
               description={news.description}
-              src={news.urlToImage}
+              src={news.image_url} // Adjust this based on the actual API response structure
               url={news.url}
             />
           </div>
