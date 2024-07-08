@@ -8,9 +8,9 @@ const Navbar = ({ setcat }) => {
     const navigate = useNavigate();
 
     const handleCategoryClick = (e, category) => {
-        e.preventDefault(); // Prevent default anchor behavior
-        setcat(category);   // Update the category
-        navigate(`/?category=${category}`); // Update the URL
+        e.preventDefault();
+        setcat(category);
+        navigate(`/?category=${category}`);
     };
 
     return (
@@ -54,7 +54,7 @@ const Navbar = ({ setcat }) => {
                         ].map(item => (
                             <li className="nav-item" key={item.category}>
                                 <button className="nav-link" href="#"
-                                   onClick={(e) => handleCategoryClick(e, item.category)}>
+                                    onClick={(e) => handleCategoryClick(e, item.category)}>
                                     <FontAwesomeIcon icon={item.icon} className="me-2" /> {item.label}
                                 </button>
                             </li>
