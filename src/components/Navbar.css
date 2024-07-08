@@ -1,0 +1,28 @@
+.navbar {
+    padding: 1rem 0; 
+    background-color:#f70505;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-link {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    transition: color 0.2s;
+    color: #333; 
+}
+
+.nav-link:hover {
+    color: #f70505; /* Red color on hover */
+}
+
+.form-control {
+    border-radius: 0.25rem;
+}
+
+.btn-primary {
+    border-radius: 0.25rem;
+}
