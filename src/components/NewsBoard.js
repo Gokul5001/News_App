@@ -13,7 +13,13 @@ const NewsBoard = ({ cat }) => {
       setLoading(true);
       setError(null);
       try {
-        let url = `https://newsdata.io/api/1/news?apikey=${apiKey}&country=in&language=en&category=${cat}`;
+        let url = `https://newsdata.io/api/1/news?apikey=${apiKey}&country=in&language=en`;
+        
+        // Adjust URL for mixed content
+        if (cat !== 'all') {
+          url += `&category=${cat}`;
+        }
+        
         let response = await fetch(url);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
