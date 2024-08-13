@@ -11,7 +11,6 @@ const App = () => {
       <Navbar setcat={setCategory} />
       <Routes>
         <Route path="/" element={<NewsBoard cat={category} />} />
-        {/* Add more routes if needed */}
       </Routes>
     </>
   );
